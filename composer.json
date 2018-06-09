@@ -1,18 +1,19 @@
+// Composer manages all dependencies of the project, the "composer dump-autoload" command automatically generates the autoloads
 {
-    "name": "thiagodevops/ecommerce",
+    "name": "thiagodevops/ecommerce", // User ID in github and project folder
     "authors": [
-        {
-            "name": "Thiago Gomes",
+        {           
+            "name": "Thiago Gomes", // Name and e-mail author of the project
             "email": "thiagodevops@gmail.com"
         }
     ],
-    "require": {
-    	"phpmailer/phpmailer":"5.2.22",
-    	"slim/slim":"2.0",
-    	"rain/raintpl":"3.0.0"
+    "require": {    // Project dependencies. In Git Bash the "composer update" command download the dependencies automatically
+    	"phpmailer/phpmailer":"5.2.22",    // Will be used for emails
+    	"slim/slim":"2.0",                 // Will be used for routes
+    	"rain/raintpl":"3.0.0"             // Will be used for Templates
     },
     "autoload": {
-        "psr-4": {
+        "psr-4": {  // Architecture of the project folders
             "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }

@@ -4,6 +4,7 @@ namespace Hcode\DB;
 
 class Sql {
 
+	// Connecting to the database
 	const HOSTNAME = "127.0.0.1";
 	const USERNAME = "root";
 	const PASSWORD = "";
@@ -11,6 +12,7 @@ class Sql {
 
 	private $conn;
 
+	// Method that build the connection
 	public function __construct()
 	{
 
@@ -40,6 +42,7 @@ class Sql {
 
 	}
 
+	// Query just executes something in the database
 	public function query($rawQuery, $params = array())
 	{
 
@@ -51,6 +54,7 @@ class Sql {
 
 	}
 
+	// Select executes something in the database and returns a response
 	public function select($rawQuery, $params = array()):array
 	{
 
