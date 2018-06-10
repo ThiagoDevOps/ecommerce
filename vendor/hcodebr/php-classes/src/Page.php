@@ -18,15 +18,15 @@ class Page{
 	];
 
 	// Magic method "__construct" is first to run. The use of the page class depends on the routes passed by the slim framework
-	public function __construct($opts = array()){
+	public function __construct($opts = array(), $tpl_dir = "/views/"){
 
 		// This statement performs a merge of the optional elements of the template with the default elements of the template. The opts overlap defaults
 		$this->options = array_merge($this->defaults, $opts);
 
 		// Setting up the magic method __construct. The template needs a folder to get the html files and a cache folder. DOCUMENT_ROOT is server environment variable that define the root folder do projeto: "ecommerce"
 		$config = array(		
-			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]."/views/", // Folder containing htmls files invoked by the methods of class "Page.php"
-			"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
+			"tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$tpl_dir, // Folder containing htmls files invoked by the methods of class "Page.php"
+			"cache_dir"     => $_SERVER["DOCUMENT_ROOT"]."/views-cache/", // Não há necessidade de criar outra pasta "views-cache", porque, o "rainTPL" cria um tipo de nome específico para cada operação
 			"debug"         => false // set to false to improve the speed
 		);
 
