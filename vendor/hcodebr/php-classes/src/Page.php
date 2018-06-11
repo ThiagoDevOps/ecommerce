@@ -14,6 +14,8 @@ class Page{
 	private $options = [];
 	// template's default variables
 	private $defaults = [
+		"header"=>true,
+		"footer"=>true,
 		"data"=>[]
 	];
 
@@ -38,8 +40,8 @@ class Page{
 		// Method that passes optional template data
 		$this->setData($this->options["data"]);
 		
-		// Method that draw the header html on pages
-		$this->tpl->draw("header");
+		// Method that valid and draw the header html on pages
+		if ($this->options["header"] === true) $this->tpl->draw("header");
 		
 	}
 
@@ -61,10 +63,10 @@ class Page{
 		return $this->tpl->draw($name, $returnHTML);
 
 	}
-	// Method that draw the footer html on pages
+	// Method that valid and draw the footer html on pages
 	public function __destruct(){
 
-		$this->tpl->draw("footer");
+		if ($this->options["footer"] === true) $this->tpl->draw("footer");
 
 	}
 
