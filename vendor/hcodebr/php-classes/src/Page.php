@@ -8,11 +8,11 @@ namespace Hcode;
 use Rain\Tpl;
 
 // Class that creates all project pages
-class Page{
+class Page {
 
 	private $tpl;
 	private $options = [];
-	// template's default variables
+	// template's default variables. A invocação dos defaults é automatica
 	private $defaults = [
 		"header"=>true,
 		"footer"=>true,
@@ -40,7 +40,7 @@ class Page{
 		// Method that passes optional template data
 		$this->setData($this->options["data"]);
 		
-		// Method that valid and draw the header html on pages
+		// Method that valid and draw the site header html on pages
 		if ($this->options["header"] === true) $this->tpl->draw("header");
 		
 	}
@@ -63,7 +63,7 @@ class Page{
 		return $this->tpl->draw($name, $returnHTML);
 
 	}
-	// Method that valid and draw the footer html on pages
+	// Method that valid and draw the site footer html on pages
 	public function __destruct(){
 
 		if ($this->options["footer"] === true) $this->tpl->draw("footer");
