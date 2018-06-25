@@ -3,7 +3,7 @@
 namespace Hcode;
 
 // Classe com função de tratar todos os "gets" e "sets" do projeto
-class Model{
+class Model {
 
 	// Atributo que terá todos os valores dos campos do objeto
 	private $values = [];
@@ -14,17 +14,19 @@ class Model{
 		// Instrução que detecta qual método foi invocado por contar as 3 primeira letras do método
 		$method = substr($name, 0, 3);
 
-		// Instrução que detecta qual atributo será usado
+		// Instrução que detecta qual campo será usado
 		$fieldName = substr($name, 3, strlen($name));
 
 		// Instrução que operacionaliza método get ou set dependendo do que foi detectado
-		switch ($method) {
+		switch ($method) 
+		{
+
 			case "get":
-				return $this->values[$fieldName];
+				return (isset($this->values[$fieldName])) ? $this->values[$fieldName] : NULL;
 			break;
 			
 			case "set":
-				$this->valeus[$fieldName] = $args[0];
+				$this->values[$fieldName] = $args[0];
 			break;
 
 		}
@@ -35,7 +37,7 @@ class Model{
 	{
 		foreach ($data as $key => $value) {
 
-			$this->{"set".$key}($values);
+			$this->{"set".$key}($value);
 
 		}
 
